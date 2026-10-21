@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lixora | Movies, Games, Anime and Series</title>
+    <meta name="description" content="Reviews, recommendations and news about movies, games, anime and series.">
+    <meta property="og:title" content="Lixora | Movies, Games, Anime and Series">
+    <meta property="og:description" content="Reviews, recommendations and news about movies, games, anime and series.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a class="logo" href="#home" aria-label="Lixora home">
+                <img src="logo.png" alt="" width="56" height="56">
+                <span>Lixora</span>
+            </a>
+            <ul>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#anime">Anime</a></li>
+                <li><a href="#series">Series</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Movies, games, anime and series</h1>
+            <p>Reviews and news from people who love them</p>
+        </section>
+
+        <section id="search" class="search-section">
+            <label for="siteSearch" class="sr-only">Search the whole site</label>
+            <input type="search" id="siteSearch" class="search" placeholder="Search movies, games, anime, reviews and news">
+            <div id="searchResults" class="review-list search-results" aria-live="polite"></div>
+        </section>
+
+        <section id="movies" class="movies">
+            <h2>Movies</h2>
+            <label for="movieSearch" class="sr-only">Search movies</label>
+            <input type="search" id="movieSearch" class="search" placeholder="Search movies">
+            <div id="movieGallery" class="gallery"></div>
+        </section>
+
+        <section id="games" class="games">
+            <h2>Games</h2>
+            <label for="gameSearch" class="sr-only">Search games</label>
+            <input type="search" id="gameSearch" class="search" placeholder="Search games">
+            <div id="gameGallery" class="gallery"></div>
+        </section>
+
+        <section id="anime" class="anime">
+            <h2>Anime</h2>
+
+            <h3 class="subhead">Anime Movies</h3>
+            <label for="animeMovieSearch" class="sr-only">Search anime movies</label>
+            <input type="search" id="animeMovieSearch" class="search" placeholder="Search anime movies">
+            <div id="animeMovieGallery" class="gallery"></div>
+
+            <h3 class="subhead">Anime Series</h3>
+            <label for="animeSeriesSearch" class="sr-only">Search anime series</label>
+            <input type="search" id="animeSeriesSearch" class="search" placeholder="Search anime series">
+            <div id="animeSeriesGallery" class="gallery"></div>
+        </section>
+
+        <section id="series" class="series">
+            <h2>Series</h2>
+            <label for="seriesSearch" class="sr-only">Search series</label>
+            <input type="search" id="seriesSearch" class="search" placeholder="Search series">
+            <div id="seriesGallery" class="gallery"></div>
+        </section>
+
+        <section id="news" class="news">
+            <h2>News</h2>
+            <div class="filters" role="group" aria-label="Filter news">
+                <button type="button" class="nfilter active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="nfilter" data-filter="movie" aria-pressed="false">Movies</button>
+                <button type="button" class="nfilter" data-filter="game" aria-pressed="false">Games</button>
+                <button type="button" class="nfilter" data-filter="anime" aria-pressed="false">Anime</button>
+                <button type="button" class="nfilter" data-filter="series" aria-pressed="false">Series</button>
+            </div>
+            <div id="newsList" class="review-list"></div>
+        </section>
+
+        <section id="reviews" class="reviews">
+            <h2>Reviews</h2>
+            <div class="filters" role="group" aria-label="Filter reviews">
+                <button type="button" class="filter active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="filter" data-filter="movie" aria-pressed="false">Movies</button>
+                <button type="button" class="filter" data-filter="game" aria-pressed="false">Games</button>
+                <button type="button" class="filter" data-filter="anime" aria-pressed="false">Anime</button>
+                <button type="button" class="filter" data-filter="series" aria-pressed="false">Series</button>
+            </div>
+            <div id="reviewList" class="review-list"></div>
+
+            <h3 class="form-title" id="writeReview">Write a review</h3>
+            <form id="reviewForm" action="https://formspree.io/f/YOUR_ID" method="POST" data-ajax data-success="Thank you! Your review will appear after approval.">
+                <input type="hidden" name="_subject" value="New review on Lixora">
+                <div class="hp" aria-hidden="true">
+                    <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+                </div>
+
+                <label for="r-type" class="sr-only">Movie, game, anime or series</label>
+                <select id="r-type" name="type" required>
+                    <option value="Movie">Movie</option>
+                    <option value="Game">Game</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Series">Series</option>
+                </select>
+
+                <label for="r-title" class="sr-only">Title of the movie, game, anime or series</label>
+                <input type="text" id="r-title" name="title" placeholder="Title (pick from the list or type it)" list="titleList" maxlength="100" required>
+                <datalist id="titleList"></datalist>
+
+                <label for="r-rating" class="sr-only">Rating</label>
+                <select id="r-rating" name="rating" required>
+                    <option value="5">5 stars - Excellent</option>
+                    <option value="4">4 stars - Good</option>
+                    <option value="3">3 stars - Okay</option>
+                    <option value="2">2 stars - Poor</option>
+                    <option value="1">1 star - Bad</option>
+                </select>
+
+                <label for="r-name" class="sr-only">Your name</label>
+                <input type="text" id="r-name" name="name" placeholder="Your name" maxlength="60" autocomplete="name" required>
+
+                <label for="r-text" class="sr-only">Your review</label>
+                <textarea id="r-text" name="review" placeholder="Write your review" rows="5" maxlength="1500" required></textarea>
+
+                <button type="submit">Submit review</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <form id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST" data-ajax data-success="Thank you! Your message has been sent.">
+                <label for="name" class="sr-only">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" required>
+
+                <label for="message" class="sr-only">Your message</label>
+                <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
+
+                <button type="submit">Send message</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lixora. An open source website about movies, games, anime and series.</p>
+    </footer>
+
+    <script src="catalog.js"></script>
+    <script src="news.js"></script>
+    <script src="reviews.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
