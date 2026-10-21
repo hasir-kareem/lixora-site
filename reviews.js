@@ -6,10 +6,10 @@
 // reviews to your email through Formspree instead.
 // ---------------------------------------------------------------------------
 const FIREBASE_CONFIG = {
-    apiKey: '',
-    authDomain: '',
-    projectId: '',
-    appId: ''
+    apiKey: 'AIzaSyAhaN9C_-0lagYSaXDTOBZwHj7hYsRpYuE',
+    authDomain: 'lixora-6f8b7.firebaseapp.com',
+    projectId: 'lixora-6f8b7',
+    appId: '1:520682589120:web:702e434378f55b23461625'
 };
 
 // Fallback reviews, used only while Firebase is not set up.
