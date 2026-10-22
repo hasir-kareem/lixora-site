@@ -22,7 +22,7 @@ const NEWS = [
 // falls back to the NEWS list above, so nothing breaks.
 const AUTO_NEWS = {
     enabled: true,
-    apiKey: '',
+    apiKey: 'koqarvs8mgz2wnkohijkt0wn8rmxem9jhlwhlpl2',
     maxPerType: 6,
     cacheMinutes: 30,
     feeds: [
